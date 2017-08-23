@@ -26,7 +26,7 @@ exports.incomeTaxCalc = function(num) {
     return num;
   }
 
-  // Decrease personal allowance in case of income over 100k
+  // Decrease personal allowance (i.e. expand 'higher' band) in case of income over 100k
   if (num > 100000) {
     var adjustment = num <= 123000 ? (num - 100000) / 2 : 11500;
     bands[1].min -= adjustment;
