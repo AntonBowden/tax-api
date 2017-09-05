@@ -1,10 +1,9 @@
 function calculator(num) {
-  var result = {
+  var result = {    
+    personalAllowance: 11500,
     net: 0,
     totalTax: 0
   };
-
-  var taxFreeAllowance = 11500;
 
   var bands = [
     {
@@ -27,7 +26,7 @@ function calculator(num) {
     }
   ];
 
-  if (num <= taxFreeAllowance) {
+  if (num <= result.personalAllowance) {
     result.net = num;
     return result;
   }
@@ -35,6 +34,7 @@ function calculator(num) {
   // Decrease personal allowance (i.e. expand 'higher' band) in case of income over 100k
   if (num > 100000) {
     var adjustment = num <= 123000 ? (num - 100000) / 2 : 11500;
+    result.personalAllowance -= adjustment;
     bands[1].min -= adjustment;
   }
 

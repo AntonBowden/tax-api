@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test:unit": "node unit/spec.js"    
+    "test:unit": "node unit/spec.js",
+    "coverage": "istanbul cover ./unit/spec.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "express": "^4.15.4"
   },
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "nodemon": "^1.11.0",
     "tape": "^4.8.0"
   }
