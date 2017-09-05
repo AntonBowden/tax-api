@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+
   "scripts": {
-    "dev": "nodemon server.js",    
+    "dev": "nodemon server.js",
+    "format": "prettier --write --single-quote --print-width=120 --tab-width=2 \"./**/*.js\"",
+    "lint": "eslint **/*.js",
     "test:unit": "node unit/spec.js",
     "test:component": "nodemon --exec \"mocha --recursive component/spec.js\"",
-    "coverage": "istanbul cover ./unit/spec.js"
+    "test:coverage": "istanbul cover ./unit/spec.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +28,11 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^4.6.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
     "nodemon": "^1.11.0",
+    "prettier": "^1.6.1",
     "supertest": "^3.0.0",
     "tape": "^4.8.0"
   }

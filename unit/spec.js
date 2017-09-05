@@ -1,7 +1,7 @@
 var test = require('tape');
 var calc = require('../incomeTaxCalc');
 
-test('===Income Tax Calculator Test Cases===', function (TC) {
+test('===Income Tax Calculator Test Cases===', function(TC) {
   TC.test('Income of £11500 or less must not be taxed', function(assert) {
     var result = calc(11500);
 
@@ -35,12 +35,14 @@ test('===Income Tax Calculator Test Cases===', function (TC) {
     assert.end();
   });
 
-  TC.test('For every £2 earned above £100000, personal allowance must be reduced by £1 and the amount reduced taxed at 40%', function(assert) {
-    var result = calc(110000);
+  TC.test(
+    'For every £2 earned above £100000, personal allowance must be reduced by £1 and the amount reduced taxed at 40%',
+    function(assert) {
+      var result = calc(110000);
 
-    assert.equal(result.higher, 28000, 28000);
-    assert.equal(result.totalTax, 34700, 34700);
-    assert.end();
-  });
-
+      assert.equal(result.higher, 28000, 28000);
+      assert.equal(result.totalTax, 34700, 34700);
+      assert.end();
+    }
+  );
 });

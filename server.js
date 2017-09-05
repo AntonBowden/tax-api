@@ -7,20 +7,17 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 app.post('/calc', function(req, res) {
   var income = req.body.income;
   res.json(calc(income));
 });
 
-
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   if (err) {
     console.log(err.message);
     res.status(500).send(err);
   }
 });
-
 
 var port = 8000;
 

@@ -7,19 +7,19 @@ function calculator(num) {
 
   var bands = [
     {
-      name: "basic",
+      name: 'basic',
       min: 11501,
       max: 45000,
       rate: 0.2
     },
     {
-      name: "higher",
+      name: 'higher',
       min: 45001,
       max: 150000,
       rate: 0.4
     },
     {
-      name: "additional",
+      name: 'additional',
       min: 150001,
       max: Infinity,
       rate: 0.45
