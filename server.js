@@ -10,8 +10,17 @@ app.use(bodyParser.json());
 
 app.post('/calc', function(req, res) {
   var income = req.body.income;
-  res.json(calc.incomeTaxCalc(income));
+  res.json(calc(income));
 });
+
+
+app.use(function(err, req, res, next) {
+  if (err) {
+    console.log(err.message);
+    res.status(500).send(err);
+  }
+});
+
 
 var port = 8000;
 

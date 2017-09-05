@@ -1,6 +1,11 @@
-exports.incomeTaxCalc = function(num) {
+function calculator(num) {
+  var result = {
+    net: 0,
+    totalTax: 0
+  };
+
   var taxFreeAllowance = 11500;
-  var totalTax = 0;
+
   var bands = [
     {
       name: "basic",
@@ -23,7 +28,8 @@ exports.incomeTaxCalc = function(num) {
   ];
 
   if (num <= taxFreeAllowance) {
-    return num;
+    result.net = num;
+    return result;
   }
 
   // Decrease personal allowance (i.e. expand 'higher' band) in case of income over 100k
@@ -37,14 +43,22 @@ exports.incomeTaxCalc = function(num) {
     var tax = 0;
     if (num >= band.max) {
       tax = range * band.rate;
-      totalTax += tax;
-      console.log(band.name, tax);
+      result.totalTax += tax;
+      //console.log(band.name, tax);
+      result[band.name] = tax;
     } else {
       tax = (num - band.min + 1) * band.rate;
-      totalTax += tax;
-      console.log(band.name, tax);
+      result.totalTax += tax;
+      //console.log(band.name, tax);
+      result[band.name] = tax;
       break;
     }
   }
-  return `Net income: £${(num - totalTax).toFixed(2)}, Tax due: £${totalTax.toFixed(2)}`;
+
+  result.net = num - result.totalTax;
+  console.log(`Net income: £${(result.net).toFixed(2)}, Tax due: £${result.totalTax.toFixed(2)}`);
+
+  return result;
 }
+
+module.exports = calculator;
