@@ -1,5 +1,5 @@
 function calculator(num) {
-  var result = {    
+  var result = {
     personalAllowance: 11500,
     net: 0,
     totalTax: 0
@@ -56,7 +56,7 @@ function calculator(num) {
   }
 
   result.net = num - result.totalTax;
-  console.log(`Net income: £${(result.net).toFixed(2)}, Tax due: £${result.totalTax.toFixed(2)}`);
+  //console.log(`Net income: £${(result.net).toFixed(2)}, Tax due: £${result.totalTax.toFixed(2)}`);
 
   return result;
 }

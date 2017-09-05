@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon server.js",    
     "test:unit": "node unit/spec.js",
+    "test:component": "nodemon --exec \"mocha --recursive component/spec.js\"",
     "coverage": "istanbul cover ./unit/spec.js"
   },
   "repository": {
@@ -23,8 +24,11 @@
     "express": "^4.15.4"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
     "nodemon": "^1.11.0",
+    "supertest": "^3.0.0",
     "tape": "^4.8.0"
   }
 }
